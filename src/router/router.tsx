@@ -27,7 +27,6 @@ interface Props { };
 
 const Router: React.FC<Props> = (props) => {
    const routes = useRoutes(routeConfig);
-   console.log(routes)
 
    return (
       <>{routes}</>

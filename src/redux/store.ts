@@ -3,6 +3,8 @@ import thunk from 'redux-thunk';
 
 import homeReducer from './reducers/home_reducer';
 
+export type StoreInterface = ReturnType<typeof reducers>
+
 const reducers = combineReducers({
    home: homeReducer
 });

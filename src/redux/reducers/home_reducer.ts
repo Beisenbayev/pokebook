@@ -1,3 +1,4 @@
+import { PokemonsListItem } from '../../api/entities/pokemons_list';
 import {
    TOGGLE_IS_LOADING,
    SET_POKEMONS_LIST,
@@ -6,26 +7,32 @@ import {
 
 export interface StateInterface {
    isLoading: boolean,
-   currentOffset: number,
-   itemsCount: number,
+   nextItemsUrl: string,
+   previousItemsUrl: string,
    totalCount: number | null,
-   pokemonsList: Array<any>
+   pokemonsList: Array<PokemonsListItem> | null,
 };
 
 const initState: StateInterface = {
    isLoading: false,
-   currentOffset: 0,
-   itemsCount: 40,
+   nextItemsUrl: '',
+   previousItemsUrl: '',
+   pokemonsList: null,
    totalCount: null,
-   pokemonsList: [],
-}
+};
 
 const homeReducer = (state: StateInterface = initState, action: ActionTypes): StateInterface => {
    switch (action.type) {
       case TOGGLE_IS_LOADING:
          return { ...state, isLoading: action.isLoading };
       case SET_POKEMONS_LIST:
-         return { ...state, pokemonsList: action.payload };
+         return {
+            ...state,
+            pokemonsList: action.payload.results,
+            totalCount: action.payload.count,
+            previousItemsUrl: action.payload.previous,
+            nextItemsUrl: action.payload.next
+         };
       default:
          return state;
    }

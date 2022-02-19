@@ -1,14 +1,11 @@
-interface PokemonsList {
+export interface PokemonsList {
    count: number,
    next: string,
    previous: string,
-   results: Array<PokemonItem>,
+   results: Array<PokemonsListItem>,
 }
 
-interface PokemonItem {
+export interface PokemonsListItem {
    name: string,
    url: string
 }
-
-
-export default PokemonsList;

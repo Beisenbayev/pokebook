@@ -1,6 +1,7 @@
 import { Dispatch } from 'redux';
 import { StateInterface } from '../reducers/home_reducer';
 import ApiService from '../../api/api_service';
+import { PokemonsList } from '../../api/entities/pokemons_list';
 
 //Action types
 export const TOGGLE_IS_LOADING = 'TOGGLE_IS_LOADING';
@@ -15,7 +16,7 @@ interface ToggleIsLoadingActionType {
 
 interface SetPokemonActionType {
    type: typeof SET_POKEMONS_LIST,
-   payload: Array<number>,
+   payload: PokemonsList,
 }
 
 export type ActionTypes = ToggleIsLoadingActionType | SetPokemonActionType;
@@ -29,7 +30,7 @@ export const toggleIsLoadingAC = (isLoading: boolean): ToggleIsLoadingActionType
    }
 }
 
-export const setPokemonAC = (payload: Array<number>): SetPokemonActionType => {
+export const setPokemonAC = (payload: PokemonsList): SetPokemonActionType => {
    return {
       type: SET_POKEMONS_LIST,
       payload

@@ -1,19 +1,53 @@
-export const actions = {
-   SET_POKEMONS_LIST: 'SET_POKEMONS_LIST',
+import { Dispatch } from 'redux';
+import { StateInterface } from '../reducers/home_reducer';
+import ApiService from '../../api/api_service';
+
+//Action types
+export const TOGGLE_IS_LOADING = 'TOGGLE_IS_LOADING';
+export const SET_POKEMONS_LIST = 'SET_POKEMONS_LIST';
+
+
+//Action Interfaces
+interface ToggleIsLoadingActionType {
+   type: typeof TOGGLE_IS_LOADING,
+   isLoading: boolean,
 }
 
-export type DefaultActionType = {
-   type: string
+interface SetPokemonActionType {
+   type: typeof SET_POKEMONS_LIST,
+   payload: Array<number>,
 }
 
-export type SetPokemonActionType = {
-   type: string,
-   items: Array<number>,
-}
+export type ActionTypes = ToggleIsLoadingActionType | SetPokemonActionType;
 
-export const setPokemonActionCreator = (items: Array<number>): SetPokemonActionType => {
+
+//Action Creators
+export const toggleIsLoadingAC = (isLoading: boolean): ToggleIsLoadingActionType => {
    return {
-      type: actions.SET_POKEMONS_LIST,
-      items
+      type: TOGGLE_IS_LOADING,
+      isLoading
+   }
+}
+
+export const setPokemonAC = (payload: Array<number>): SetPokemonActionType => {
+   return {
+      type: SET_POKEMONS_LIST,
+      payload
+   }
+}
+
+
+//Thunk Creators
+export const setPokemonThunk = () => {
+   return async (dispatch: Dispatch<ActionTypes>, state: StateInterface) => {
+      dispatch(toggleIsLoadingAC(true));
+      try {
+         const pokemonsList = await ApiService.getPokemonsList();
+         dispatch(setPokemonAC(pokemonsList));
+      } catch (error) {
+         console.log(error);
+      } finally {
+         dispatch(toggleIsLoadingAC(false));
+      }
    }
 }

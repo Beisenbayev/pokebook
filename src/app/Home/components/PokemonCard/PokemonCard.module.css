@@ -1,0 +1,42 @@
+.content {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.topContent {
+  padding: 8px 16px;
+  border-radius: 16px 16px 0 0;
+  border: 3px solid #74cb48;
+  background: #ffffff;
+}
+
+.number {
+  display: inline-block;
+  width: 100%;
+  font-size: 20px;
+  text-align: right;
+  color: #74cb48;
+}
+
+.image {
+  width: 154px;
+  height: 154px;
+  margin: 0 auto;
+}
+
+.image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.bottomContent {
+  padding: 8px 16px 12px;
+  background: #74cb48;
+}
+
+.bottomContent p {
+  font-size: 32px;
+  color: #FFFFFF;
+}

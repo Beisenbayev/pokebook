@@ -19,13 +19,13 @@ const Home: React.FC<Props> = (props): JSX.Element => {
 
    useEffect(() => {
       dispatch(setPokemonThunk());
-   }, [])
+   }, []);
 
-   const pokemonItems: Array<JSX.Element> = pokemonsList.map((pokemon, index) => {
-      return <PokemonCard key={index}
-         id={index}
+   const pokemonItems: Array<JSX.Element> = pokemonsList.map((pokemon) => {
+      return <PokemonCard key={pokemon.id}
+         id={pokemon.id}
          name={pokemon.name}
-         imgSrc={'https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png'} />
+         imgSrc={pokemon.imageUrl} />
    });
 
    return (

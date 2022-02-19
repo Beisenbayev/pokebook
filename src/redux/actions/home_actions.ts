@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux';
 import { StateInterface } from '../reducers/home_reducer';
 import ApiService from '../../api/api_service';
-import { PokemonsList } from '../../api/entities/pokemons_list';
+import { PokemonsList, PokemonsListItem } from '../../api/entities/pokemons_list';
 
 //Action types
 export const TOGGLE_IS_LOADING = 'TOGGLE_IS_LOADING';
@@ -44,7 +44,13 @@ export const setPokemonThunk = () => {
       dispatch(toggleIsLoadingAC(true));
       try {
          const pokemonsList = await ApiService.getPokemonsList();
-         dispatch(setPokemonAC(pokemonsList));
+         const pokemonsDataList = await pokemonsList.results.map(async (item: any) => {
+            const pokemon = await ApiService.getPokemonByUrl(item.url);
+            pokemon.imageUrl = 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png';
+            return pokemon;
+         });
+         console.log(pokemonsDataList.length)
+         dispatch(setPokemonAC({ ...pokemonsList, results: pokemonsDataList }));
       } catch (error) {
          console.log(error);
       } finally {

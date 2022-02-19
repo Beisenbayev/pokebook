@@ -6,6 +6,8 @@ export interface PokemonsList {
 }
 
 export interface PokemonsListItem {
+   id: number,
+   imageUrl: string,
    name: string,
-   url: string
+   //url: string
 }

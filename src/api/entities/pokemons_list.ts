@@ -9,5 +9,5 @@ export interface PokemonsListItem {
    id: number,
    imageUrl: string,
    name: string,
-   //url: string
+   index: string
 }

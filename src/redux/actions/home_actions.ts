@@ -1,7 +1,9 @@
 import { Dispatch } from 'redux';
 import { StateInterface } from '../reducers/home_reducer';
 import ApiService from '../../api/api_service';
-import { PokemonsList, PokemonsListItem } from '../../api/entities/pokemons_list';
+import { PokemonsList } from '../../api/entities/pokemons_list';
+import { ApiUtils } from '../../api/api_config';
+import Utils from '../../utils/utils';
 
 //Action types
 export const TOGGLE_IS_LOADING = 'TOGGLE_IS_LOADING';
@@ -46,11 +48,13 @@ export const setPokemonThunk = () => {
          const pokemonsList = await ApiService.getPokemonsList();
          const pokemonsDataList = await pokemonsList.results.map(async (item: any) => {
             const pokemon = await ApiService.getPokemonByUrl(item.url);
-            pokemon.imageUrl = 'https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png';
+            pokemon.index = Utils.createIndexById(pokemon.id);
+            pokemon.imageUrl = ApiUtils.getPokemonImageUrl(pokemon.index);
             return pokemon;
          });
-         console.log(pokemonsDataList.length)
-         dispatch(setPokemonAC({ ...pokemonsList, results: pokemonsDataList }));
+         const pokemonsResponse = await Promise.allSettled(pokemonsDataList);
+         const pokemons = pokemonsResponse.map((item: any) => item.value);
+         dispatch(setPokemonAC({ ...pokemonsList, results: pokemons }));
       } catch (error) {
          console.log(error);
       } finally {

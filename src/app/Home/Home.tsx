@@ -24,6 +24,7 @@ const Home: React.FC<Props> = (props): JSX.Element => {
    const pokemonItems: Array<JSX.Element> = pokemonsList.map((pokemon) => {
       return <PokemonCard key={pokemon.id}
          id={pokemon.id}
+         index={pokemon.index}
          name={pokemon.name}
          imgSrc={pokemon.imageUrl} />
    });

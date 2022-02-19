@@ -15,7 +15,7 @@ const PokemonCard: React.FC<Props> = (props): JSX.Element => {
          <div className={s.topContent}>
             <span className={s.number}>{props.id}</span>
             <div className={s.image}>
-               <img src={props.imgSrc} />
+               <img src={props.imgSrc} alt='pokemon' />
             </div>
          </div>
          <div className={s.bottomContent}>

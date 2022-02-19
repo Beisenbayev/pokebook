@@ -10,7 +10,7 @@ const Logotype: React.FC<Props> = (props): JSX.Element => {
    return (
       <NavLink to='/' className={s.content}>
          <div className={s.image}>
-            <img src={logoIcon} className={s.img} />
+            <img src={logoIcon} className={s.img} alt='logo' />
          </div>
          <span className={s.text}>Pokebook</span>
       </NavLink>

@@ -1,0 +1,27 @@
+.content {
+   width: fit-content;
+   margin: 0 auto;
+   padding: 12px 20px;
+   border: 2px solid #313131;
+   border-radius: 6px;
+   font-size: 22px;
+   text-align: center;
+   text-transform: none;
+   background: #313131;
+   color: #fff;
+   cursor: pointer;
+   transition: all 0.3s;
+
+   &.isDisabled {
+      background: #313131 !important;
+      color: #fff !important;
+      pointer-events: none;
+      cursor: default;
+      opacity: 0.8;
+   }
+
+   &:hover {
+      background: transparent;
+      color: #313131;
+   }
+}

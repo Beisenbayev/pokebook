@@ -5,3 +5,7 @@ export const getPokemonsList = (state: StateInterface): Array<PokemonsListItem> 
    if (state.pokemonsList === null) return [];
    return state.pokemonsList;
 }
+
+export const getIsLoading = (state: StateInterface): boolean => {
+   return state.isLoading;
+}

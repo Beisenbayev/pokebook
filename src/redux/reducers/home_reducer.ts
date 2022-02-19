@@ -2,6 +2,7 @@ import { PokemonsListItem } from '../../api/entities/pokemons_list';
 import {
    TOGGLE_IS_LOADING,
    SET_POKEMONS_LIST,
+   LOAD_MORE_POKEMONS,
    ActionTypes
 } from '../actions/home_actions';
 
@@ -32,6 +33,13 @@ const homeReducer = (state: StateInterface = initState, action: ActionTypes): St
             ...state,
             pokemonsList: action.payload.results,
             totalCount: action.payload.count,
+            previousItemsUrl: action.payload.previous,
+            nextItemsUrl: action.payload.next
+         };
+      case LOAD_MORE_POKEMONS:
+         return {
+            ...state,
+            pokemonsList: [...state.pokemonsList!, ...action.payload.results],
             previousItemsUrl: action.payload.previous,
             nextItemsUrl: action.payload.next
          };

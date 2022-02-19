@@ -2,15 +2,15 @@ import axios from "axios";
 import { apiConfig, apiEndpoints } from "./api_config";
 
 interface ApiServiceInterface {
-   getPokemonsList: () => Promise<any>,
+   getPokemonsList: (limit: number) => Promise<any>,
    getPokemonById: (id: number) => Promise<any>,
    getPokemonsListByUrl: (url: string) => Promise<any>,
    getPokemonByUrl: (url: string) => Promise<any>,
 }
 
 const ApiService: ApiServiceInterface = {
-   getPokemonsList: async (): Promise<any> => {
-      const response = await axios.get(`${apiConfig.baseUrl}/${apiEndpoints.pokemonsList}`);
+   getPokemonsList: async (limit: number): Promise<any> => {
+      const response = await axios.get(`${apiConfig.baseUrl}/${apiEndpoints.pokemonsList}?limit=${limit}`);
       return response.data;
    },
 

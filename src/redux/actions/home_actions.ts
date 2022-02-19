@@ -42,10 +42,11 @@ export const setPokemonAC = (payload: PokemonsList): SetPokemonActionType => {
 
 //Thunk Creators
 export const setPokemonThunk = () => {
-   return async (dispatch: Dispatch<ActionTypes>, state: StateInterface) => {
+   return async (dispatch: Dispatch<ActionTypes>, getState: any) => {
       dispatch(toggleIsLoadingAC(true));
       try {
-         const pokemonsList = await ApiService.getPokemonsList();
+         const state = getState();
+         const pokemonsList = await ApiService.getPokemonsList(state.home.itemsLimit);
          const pokemonsDataList = await pokemonsList.results.map(async (item: any) => {
             const pokemon = await ApiService.getPokemonByUrl(item.url);
             pokemon.index = Utils.createIndexById(pokemon.id);

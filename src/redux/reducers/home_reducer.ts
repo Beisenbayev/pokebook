@@ -9,6 +9,7 @@ export interface StateInterface {
    isLoading: boolean,
    nextItemsUrl: string,
    previousItemsUrl: string,
+   itemsLimit: number,
    totalCount: number | null,
    pokemonsList: Array<PokemonsListItem> | null,
 };
@@ -18,6 +19,7 @@ const initState: StateInterface = {
    nextItemsUrl: '',
    previousItemsUrl: '',
    pokemonsList: null,
+   itemsLimit: 21,
    totalCount: null,
 };
 

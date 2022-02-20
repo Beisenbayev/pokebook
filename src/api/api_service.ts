@@ -8,7 +8,7 @@ interface ApiServiceInterface {
    getPokemonByUrl: (url: string) => Promise<any>,
 }
 
-const ApiService: ApiServiceInterface = {
+const apiService: ApiServiceInterface = {
    getPokemonsList: async (limit: number): Promise<any> => {
       const response = await axios.get(`${apiConfig.baseUrl}/${apiEndpoints.pokemonsList}?limit=${limit}`);
       return response.data;
@@ -31,4 +31,4 @@ const ApiService: ApiServiceInterface = {
 };
 
 
-export default ApiService;
+export default apiService;

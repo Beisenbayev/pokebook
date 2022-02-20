@@ -22,6 +22,6 @@ export const apiEndpoints: ApiEndpointsInterface = {
    pokemonById: (id: number) => `pokemon/${id}`,
 }
 
-export const ApiUtils: ApiUtilsInterface = {
+export const apiUtils: ApiUtilsInterface = {
    getPokemonImageUrl: (pokemonId: number) => `${apiConfig.imageUrl}/${pokemonId}.png`,
 };

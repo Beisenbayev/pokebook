@@ -4,7 +4,7 @@ import s from './Home.module.css';
 
 import { StoreInterface } from "../../redux/store";
 import { getIsLoading, getPokemonsList } from "../../redux/selectors/home_selector";
-import { setPokemonThunk, loadMorePokemonThunk } from "../../redux/actions/home_actions";
+import { getPokemonsListThunk, loadMorePokemonThunk } from "../../redux/actions/home_actions";
 
 import Header from '../../components/Header/Header';
 import SearchPanel from '../../components/SearchPanel/SearchPanel';
@@ -20,7 +20,7 @@ const Home: React.FC<Props> = (props): JSX.Element => {
    const pokemonsList = useSelector((store: StoreInterface) => getPokemonsList(store.home));
 
    useEffect(() => {
-      dispatch(setPokemonThunk());
+      dispatch(getPokemonsListThunk());
    }, []);
 
    const handleLoadMorePokemon = () => {

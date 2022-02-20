@@ -46,7 +46,7 @@ export const getPokemonDataThunk = (pokemonId: string) => {
       try {
          const pokemonData = await apiService.getPokemonById(pokemonId);
          pokemonData.index = Utils.createIndexById(pokemonData.id);
-         pokemonData.imageUrl = apiUtils.getPokemonImageUrl(pokemonData.index);
+         pokemonData.imageUrl = apiUtils.getPokemonLargeImageUrl(pokemonData.index);
          dispatch(setPokemonDataAC(pokemonData));
       } catch (error) {
          console.log(error);

@@ -1,20 +1,23 @@
 interface ApiConfigInterface {
-   baseUrl: String,
-   imageUrl: String,
+   baseUrl: string,
+   imageUrl: string,
+   largeImageUrl: string
 }
 
 interface ApiEndpointsInterface {
-   pokemonsList: String,
-   pokemonById: (id: string) => String,
+   pokemonsList: string,
+   pokemonById: (id: string) => string,
 }
 
 interface ApiUtilsInterface {
-   getPokemonImageUrl: (pokemonId: number) => String,
+   getPokemonImageUrl: (pokemonId: string) => string,
+   getPokemonLargeImageUrl: (pokemonId: string) => string,
 }
 
 export const apiConfig: ApiConfigInterface = {
    baseUrl: 'https://pokeapi.co/api/v2',
    imageUrl: 'https://assets.pokemon.com/assets/cms2/img/pokedex/detail',
+   largeImageUrl: '	https://assets.pokemon.com/assets/cms2/img/pokedex/full',
 };
 
 export const apiEndpoints: ApiEndpointsInterface = {
@@ -23,5 +26,6 @@ export const apiEndpoints: ApiEndpointsInterface = {
 }
 
 export const apiUtils: ApiUtilsInterface = {
-   getPokemonImageUrl: (pokemonId: number) => `${apiConfig.imageUrl}/${pokemonId}.png`,
+   getPokemonImageUrl: (pokemonId: string) => `${apiConfig.imageUrl}/${pokemonId}.png`,
+   getPokemonLargeImageUrl: (pokemonId: string) => `${apiConfig.largeImageUrl}/${pokemonId}.png`,
 };

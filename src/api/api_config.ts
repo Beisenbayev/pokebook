@@ -5,7 +5,7 @@ interface ApiConfigInterface {
 
 interface ApiEndpointsInterface {
    pokemonsList: String,
-   pokemonById: (id: number) => String,
+   pokemonById: (id: string) => String,
 }
 
 interface ApiUtilsInterface {
@@ -19,7 +19,7 @@ export const apiConfig: ApiConfigInterface = {
 
 export const apiEndpoints: ApiEndpointsInterface = {
    pokemonsList: 'pokemon',
-   pokemonById: (id: number) => `pokemon/${id}`,
+   pokemonById: (id: string) => `pokemon/${id}`,
 }
 
 export const apiUtils: ApiUtilsInterface = {

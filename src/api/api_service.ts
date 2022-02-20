@@ -3,7 +3,7 @@ import { apiConfig, apiEndpoints } from "./api_config";
 
 interface ApiServiceInterface {
    getPokemonsList: (limit: number) => Promise<any>,
-   getPokemonById: (id: number) => Promise<any>,
+   getPokemonById: (id: string) => Promise<any>,
    getPokemonsListByUrl: (url: string) => Promise<any>,
    getPokemonByUrl: (url: string) => Promise<any>,
 }
@@ -19,7 +19,7 @@ const apiService: ApiServiceInterface = {
       return response.data;
    },
 
-   getPokemonById: async (id: number): Promise<any> => {
+   getPokemonById: async (id: string): Promise<any> => {
       const response = await axios.get(`${apiConfig.baseUrl}/${apiEndpoints.pokemonById(id)}`);
       return response.data;
    },

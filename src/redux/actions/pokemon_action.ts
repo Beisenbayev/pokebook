@@ -40,7 +40,7 @@ const setPokemonDataAC = (payload: Pokemon): SetPokemonDataActionType => {
 
 
 //Thunk Creators
-export const getPokemonDataThunk = (pokemonId: number) => {
+export const getPokemonDataThunk = (pokemonId: string) => {
    return async (dispatch: Dispatch<ActionTypes>) => {
       dispatch(toggleIsLoadingAC(true));
       try {

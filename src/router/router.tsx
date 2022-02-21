@@ -3,6 +3,7 @@ import { useRoutes } from "react-router-dom";
 
 import Home from '../app/Home/Home';
 import PokemonInfo from '../app/PokemonInfo/PokemonInfo';
+import Error from '../app/Error/Error';
 
 interface RouteInterface {
    path: string,
@@ -12,8 +13,7 @@ interface RouteInterface {
 
 const routeConfig: Array<RouteInterface> = [
    { path: '/', element: <Home /> },
-   { path: '/home', element: <Home /> },
-   { path: '*', element: <div></div> },
+   { path: '*', element: <Error /> },
    {
       path: '/pokemon',
       element: <PokemonInfo />,

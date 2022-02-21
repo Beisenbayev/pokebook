@@ -1,8 +1,8 @@
 import { Dispatch } from 'redux';
 import { StateInterface } from '../reducers/home_reducer';
-import ApiService from '../../api/api_service';
+import apiService from '../../api/api_service';
 import { PokemonsList } from '../../api/entities/pokemons_list';
-import { ApiUtils } from '../../api/api_config';
+import { apiUtils } from '../../api/api_config';
 import Utils from '../../utils/utils';
 
 //Action types
@@ -55,16 +55,16 @@ export const loadMorePokemonsAC = (payload: PokemonsList): LoadMorePokemonsActio
 
 
 //Thunk Creators
-export const setPokemonThunk = () => {
+export const getPokemonsListThunk = () => {
    return async (dispatch: Dispatch<ActionTypes>, getState: any) => {
       dispatch(toggleIsLoadingAC(true));
       try {
          const state = getState();
-         const pokemonsList = await ApiService.getPokemonsList(state.home.itemsLimit);
+         const pokemonsList = await apiService.getPokemonsList(state.home.itemsLimit);
          const pokemonsDataList = await pokemonsList.results.map(async (item: any) => {
-            const pokemon = await ApiService.getPokemonByUrl(item.url);
+            const pokemon = await apiService.getPokemonByUrl(item.url);
             pokemon.index = Utils.createIndexById(pokemon.id);
-            pokemon.imageUrl = ApiUtils.getPokemonImageUrl(pokemon.index);
+            pokemon.imageUrl = apiUtils.getPokemonImageUrl(pokemon.index);
             return pokemon;
          });
          const pokemonsResponse = await Promise.allSettled(pokemonsDataList);
@@ -83,11 +83,11 @@ export const loadMorePokemonThunk = () => {
       dispatch(toggleIsLoadingAC(true));
       try {
          const state = getState();
-         const pokemonsList = await ApiService.getPokemonsListByUrl(state.home.nextItemsUrl);
+         const pokemonsList = await apiService.getPokemonsListByUrl(state.home.nextItemsUrl);
          const pokemonsDataList = await pokemonsList.results.map(async (item: any) => {
-            const pokemon = await ApiService.getPokemonByUrl(item.url);
+            const pokemon = await apiService.getPokemonByUrl(item.url);
             pokemon.index = Utils.createIndexById(pokemon.id);
-            pokemon.imageUrl = ApiUtils.getPokemonImageUrl(pokemon.index);
+            pokemon.imageUrl = apiUtils.getPokemonImageUrl(pokemon.index);
             return pokemon;
          });
          const pokemonsResponse = await Promise.allSettled(pokemonsDataList);

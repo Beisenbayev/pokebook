@@ -3,9 +3,24 @@ interface Pokemon {
    name: string,
    height: number,
    weight: number,
+   imageUrl: '',
+   stats: Array<PokemonStat>,
    abilities: Array<PokemonAbility>,
    types: Array<PokemonType>,
 }
+
+
+interface PokemonStat {
+   effort: number,
+   base_stat: number,
+   stat: PokemonStatItem
+}
+
+interface PokemonStatItem {
+   name: string,
+   url: string
+}
+
 
 interface PokemonAbility {
    ability: PokemonAbilityItem,
@@ -18,9 +33,10 @@ interface PokemonAbilityItem {
    url: string
 }
 
+
 interface PokemonType {
    slot: number,
-   ability: PokemonTypeItem,
+   type: PokemonTypeItem,
 }
 
 interface PokemonTypeItem {

@@ -2,6 +2,13 @@
    padding-bottom: 50px;
 }
 
+.headerPanels {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   gap: 30px;
+}
+
 .items {
    display: grid;
    grid-template-columns: repeat(3, 1fr);

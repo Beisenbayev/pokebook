@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import s from './Home.module.css';
 
 import { StoreInterface } from "../../redux/store";
-import { getIsLoading, getPokemonsList } from "../../redux/selectors/home_selector";
+import { getIsLoading, getPokemonsList, getPokemonsCount } from "../../redux/selectors/home_selector";
 import { getPokemonsListThunk, loadMorePokemonThunk } from "../../redux/actions/home_actions";
 
 import Header from '../../components/Header/Header';
@@ -15,9 +16,11 @@ interface Props { };
 
 const Home: React.FC<Props> = (props): JSX.Element => {
    const dispatch = useDispatch();
+   const navigator = useNavigate();
    const [searchValue, setSearchValue] = useState<string>('');
    const isLoading = useSelector((store: StoreInterface) => getIsLoading(store.home));
    const pokemonsList = useSelector((store: StoreInterface) => getPokemonsList(store.home));
+   const pokemonsCount = useSelector((store: StoreInterface) => getPokemonsCount(store.home));
 
    useEffect(() => {
       dispatch(getPokemonsListThunk());
@@ -26,7 +29,12 @@ const Home: React.FC<Props> = (props): JSX.Element => {
    const handleLoadMorePokemon = () => {
       dispatch(loadMorePokemonThunk());
    }
-   console.log(pokemonsList)
+
+   const handleShowRandomPokemon = () => {
+      const randomId: number = Math.floor(Math.random() * pokemonsCount);
+      navigator(`/pokemon/${randomId}`);
+   }
+
    const pokemonItems: Array<JSX.Element> = pokemonsList ?
       pokemonsList
          .filter(item => item.name.includes(searchValue))
@@ -41,8 +49,12 @@ const Home: React.FC<Props> = (props): JSX.Element => {
    return (
       <div className={s.content}>
          <Header />
-         <SearchPanel value={searchValue}
-            handleChangeVlaue={setSearchValue} />
+         <div className={s.headerPanels}>
+            <SearchPanel value={searchValue}
+               handleChangeVlaue={setSearchValue} />
+            <Button title={"my pokemon"}
+               handleOnClick={handleShowRandomPokemon} />
+         </div>
          <div className={s.items}>
             {pokemonItems}
          </div>

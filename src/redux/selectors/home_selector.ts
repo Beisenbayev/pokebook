@@ -9,3 +9,8 @@ export const getPokemonsList = (state: StateInterface): Array<PokemonsListItem> 
 export const getIsLoading = (state: StateInterface): boolean => {
    return state.isLoading;
 }
+
+export const getPokemonsCount = (state: StateInterface): number => {
+   if (state.totalCount === null) return 0;
+   return state.totalCount;
+}

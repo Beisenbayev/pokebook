@@ -1,13 +1,22 @@
 .content {
-  border-radius: 16px;
+  border-radius: 6px;
   overflow: hidden;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+.content:hover {
+  -webkit-transform: translateY(-5px);
+      -ms-transform: translateY(-5px);
+          transform: translateY(-5px);
 }
 
 .topContent {
   padding: 8px 16px;
-  border-radius: 16px 16px 0 0;
-  border: 3px solid #74cb48;
-  background: #ffffff;
+  border-radius: 6px 6px 0 0;
+  border: 2px solid #212121;
+  background: #f2f2f2;
 }
 
 .number {
@@ -15,7 +24,7 @@
   width: 100%;
   font-size: 20px;
   text-align: right;
-  color: #74cb48;
+  color: #212121;
 }
 
 .image {
@@ -33,7 +42,7 @@
 
 .bottomContent {
   padding: 8px 16px 12px;
-  background: #74cb48;
+  background: #212121;
 }
 
 .bottomContent p {

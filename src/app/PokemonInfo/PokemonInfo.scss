@@ -79,6 +79,30 @@
   }
 }
 
+.statsSection {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  gap: 10px;
+}
+.statInfo {
+  padding: 15px;
+  border-radius: 6px;
+  background: #7b62a3;
+  color: #fff;
+  h5 {
+    margin-bottom: 7px;
+    font-size: 12px;
+    font-weight: normal;
+    color: #fff;
+  }
+  p {
+    font-size: 20px;
+    font-weight: bold;
+    color: #212121;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .title {
     h2,
@@ -105,5 +129,11 @@
     p {
       font-size: 30px;
     }
+  }
+  .statsSection {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 10px;
   }
 }

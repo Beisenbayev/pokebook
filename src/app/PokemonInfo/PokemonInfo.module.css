@@ -104,6 +104,37 @@
   color: #212121;
 }
 
+.statsSection {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+}
+
+.statInfo {
+  padding: 15px;
+  border-radius: 6px;
+  background: #7b62a3;
+  color: #fff;
+}
+
+.statInfo h5 {
+  margin-bottom: 7px;
+  font-size: 12px;
+  font-weight: normal;
+  color: #fff;
+}
+
+.statInfo p {
+  font-size: 20px;
+  font-weight: bold;
+  color: #212121;
+}
+
 @media screen and (max-width: 768px) {
   .title h2,
   .title p {
@@ -129,5 +160,15 @@
   .title h2,
   .title p {
     font-size: 30px;
+  }
+  .statsSection {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 10px;
   }
 }

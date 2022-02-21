@@ -30,6 +30,15 @@ const PokemonInfo: React.FC<Porps> = (props): JSX.Element => {
             {item?.type.name}
          </div>
       );
+   });
+
+   const pokemonStats = pokemonData?.stats.map((item, index) => {
+      return (
+         <div key={index} className={s.statInfo}>
+            <h5>{item?.stat.name}:</h5>
+            <p>{item?.base_stat}</p>
+         </div>
+      );
    })
 
    return (
@@ -60,6 +69,9 @@ const PokemonInfo: React.FC<Porps> = (props): JSX.Element => {
                      <h4>Abilities:</h4>
                      <p>{pokemonData?.abilities.map(item => item.ability.name).join(', ')}</p>
                   </div>
+               </div>
+               <div className={s.statsSection}>
+                  {pokemonStats}
                </div>
             </div>
          </div>

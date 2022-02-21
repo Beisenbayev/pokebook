@@ -8,7 +8,7 @@ import { getPokemonDataThunk } from "../../redux/actions/pokemon_action";
 import { getPokemonDataSelector } from "../../redux/selectors/pokemon_selector";
 
 import Hedaer from "../../components/Header/Header";
-import Utils from "../../utils/utils";
+import Utils from "../../core/utils/utils";
 
 interface Porps { };
 type ParamsType = {
@@ -23,9 +23,9 @@ const PokemonInfo: React.FC<Porps> = (props): JSX.Element => {
    useEffect(() => {
       dispatch(getPokemonDataThunk(pokeId!));
    }, [])
-   const pokemonTypes = pokemonData?.types.map(item => {
+   const pokemonTypes = pokemonData?.types.map((item, index) => {
       return (
-         <div className={s.typeInfo}>{item?.type.name}</div>
+         <div key={index} className={s.typeInfo}>{item?.type.name}</div>
       );
    })
 

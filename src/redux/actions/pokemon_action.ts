@@ -2,7 +2,7 @@ import { Dispatch } from "react";
 import { apiUtils } from "../../api/api_config";
 import apiService from "../../api/api_service";
 import Pokemon from "../../api/entities/pokemon";
-import Utils from "../../utils/utils";
+import Utils from "../../core/utils/utils";
 
 //Action types
 export const TOGGLE_IS_LOADING = 'TOGGLE_IS_LOADING';

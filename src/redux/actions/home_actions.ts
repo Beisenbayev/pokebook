@@ -3,7 +3,7 @@ import { StateInterface } from '../reducers/home_reducer';
 import apiService from '../../api/api_service';
 import { PokemonsList } from '../../api/entities/pokemons_list';
 import { apiUtils } from '../../api/api_config';
-import Utils from '../../utils/utils';
+import Utils from '../../core/utils/utils';
 
 //Action types
 export const TOGGLE_IS_LOADING = 'TOGGLE_IS_LOADING';

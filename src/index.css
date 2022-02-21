@@ -1,3 +1,5 @@
+@import "./core/fonts/fonts.css";
+
 * {
 	margin: 0;
 	padding: 0;
@@ -5,7 +7,7 @@
 	box-sizing: border-box;
 }
 body {
-	font-family: "Flexo-Demi", arial, sans-serif;
+	font-family: "RedHands", arial, sans-serif;
 	font-size: 12.5px;
 	line-height: 1;
 	font-weight: normal;

@@ -35,3 +35,45 @@
     object-fit: cover;
   }
 }
+
+.typesSection {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+.typeInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 30px;
+  border-radius: 6px;
+  vertical-align: center;
+  font-size: 16px;
+  background-color: #b97fc9;
+  color: #fff;
+}
+
+.abilitiesSection {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  padding: 20px;
+  border-radius: 6px;
+  background: #30a7d7;
+}
+.abilityInfo {
+  h4 {
+    margin-bottom: 5px;
+    font-size: 22px;
+    font-weight: normal;
+    color: #fff;
+  }
+  p {
+    font-size: 26px;
+    font-weight: bold;
+    color: #212121;
+  }
+}

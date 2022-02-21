@@ -23,6 +23,11 @@ const PokemonInfo: React.FC<Porps> = (props): JSX.Element => {
    useEffect(() => {
       dispatch(getPokemonDataThunk(pokeId!));
    }, [])
+   const pokemonTypes = pokemonData?.types.map(item => {
+      return (
+         <div className={s.typeInfo}>{item?.type.name}</div>
+      );
+   })
 
    return (
       <div className={s.content}>
@@ -37,7 +42,7 @@ const PokemonInfo: React.FC<Porps> = (props): JSX.Element => {
             </div>
             <div className={s.infoSection}>
                <div className={s.typesSection}>
-
+                  {pokemonTypes}
                </div>
                <div className={s.abilitiesSection}>
                   <div className={s.abilityInfo}>

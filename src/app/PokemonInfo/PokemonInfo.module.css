@@ -45,3 +45,60 @@
   -o-object-fit: cover;
      object-fit: cover;
 }
+
+.typesSection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.typeInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 120px;
+  height: 30px;
+  border-radius: 6px;
+  vertical-align: center;
+  font-size: 16px;
+  background-color: #b97fc9;
+  color: #fff;
+}
+
+.abilitiesSection {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  gap: 16px;
+  padding: 20px;
+  border-radius: 6px;
+  background: #30a7d7;
+}
+
+.abilityInfo h4 {
+  margin-bottom: 5px;
+  font-size: 22px;
+  font-weight: normal;
+  color: #fff;
+}
+
+.abilityInfo p {
+  font-size: 26px;
+  font-weight: bold;
+  color: #212121;
+}

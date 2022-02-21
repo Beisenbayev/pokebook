@@ -36,7 +36,7 @@ interface PokemonAbilityItem {
 
 interface PokemonType {
    slot: number,
-   ability: PokemonTypeItem,
+   type: PokemonTypeItem,
 }
 
 interface PokemonTypeItem {

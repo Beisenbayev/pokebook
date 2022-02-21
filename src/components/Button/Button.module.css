@@ -13,6 +13,7 @@
   color: #fff;
   cursor: pointer;
   -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
   transition: all 0.3s;
 }
 

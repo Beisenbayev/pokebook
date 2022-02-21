@@ -3,6 +3,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  padding: 15px 0;
 
   h2,
   p {
@@ -15,10 +16,10 @@
   }
 }
 
-.topContent {
+.bodyContent {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 15px;
+  gap: 16px;
   padding: 30px 0;
 }
 
@@ -41,7 +42,6 @@
   justify-content: flex-start;
   align-items: center;
   gap: 10px;
-  margin-bottom: 15px;
 }
 .typeInfo {
   display: flex;
@@ -60,14 +60,15 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 16px;
+  margin: 16px 0;
   padding: 20px;
   border-radius: 6px;
   background: #30a7d7;
 }
 .abilityInfo {
   h4 {
-    margin-bottom: 5px;
-    font-size: 22px;
+    margin-bottom: 7px;
+    font-size: 18px;
     font-weight: normal;
     color: #fff;
   }
@@ -75,5 +76,34 @@
     font-size: 26px;
     font-weight: bold;
     color: #212121;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .title {
+    h2,
+    p {
+      font-size: 32px;
+    }
+  }
+  .bodyContent {
+    grid-template-columns: 1fr;
+  }
+  .image {
+    max-width: 400px;
+    max-height: 400px;
+    margin: 0 auto;
+  }
+  .typesSection {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .title {
+    h2,
+    p {
+      font-size: 30px;
+    }
   }
 }

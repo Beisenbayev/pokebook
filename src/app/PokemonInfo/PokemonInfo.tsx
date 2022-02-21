@@ -22,10 +22,13 @@ const PokemonInfo: React.FC<Porps> = (props): JSX.Element => {
 
    useEffect(() => {
       dispatch(getPokemonDataThunk(pokeId!));
-   }, [])
+   }, [pokeId]);
+
    const pokemonTypes = pokemonData?.types.map((item, index) => {
       return (
-         <div key={index} className={s.typeInfo}>{item?.type.name}</div>
+         <div key={index} className={s.typeInfo}>
+            {item?.type.name}
+         </div>
       );
    })
 
@@ -36,7 +39,7 @@ const PokemonInfo: React.FC<Porps> = (props): JSX.Element => {
             <h2>{pokemonData?.name.toLocaleUpperCase()}</h2>
             <p>#{Utils.createIndexById(pokemonData?.id!)}</p>
          </div>
-         <div className={s.topContent}>
+         <div className={s.bodyContent}>
             <div className={s.image}>
                <img src={pokemonData?.imageUrl} alt='pokemon' />
             </div>

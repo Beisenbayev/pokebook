@@ -5,8 +5,9 @@ import s from './PokemonInfo.module.css';
 
 import { StoreInterface } from "../../redux/store";
 import { getPokemonDataThunk } from "../../redux/actions/pokemon_action";
-import { getPokemonDataSelector } from "../../redux/selectors/pokemon_selector";
+import { getPokemonDataSelector, getIsLoading } from "../../redux/selectors/pokemon_selector";
 
+import Loading from "../Loading/Loading";
 import Hedaer from "../../components/Header/Header";
 import Utils from "../../core/utils/utils";
 
@@ -18,6 +19,7 @@ type ParamsType = {
 const PokemonInfo: React.FC<Porps> = (props): JSX.Element => {
    const dispatch = useDispatch();
    const { pokeId } = useParams<ParamsType>();
+   const isLoading = useSelector((store: StoreInterface) => getIsLoading(store.pokemon));
    const pokemonData = useSelector((store: StoreInterface) => getPokemonDataSelector(store.pokemon));
 
    useEffect(() => {
@@ -39,7 +41,9 @@ const PokemonInfo: React.FC<Porps> = (props): JSX.Element => {
             <p>{item?.base_stat}</p>
          </div>
       );
-   })
+   });
+
+   if (isLoading) return <Loading />
 
    return (
       <div className={s.content}>

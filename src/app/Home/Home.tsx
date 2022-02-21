@@ -7,7 +7,6 @@ import { StoreInterface } from "../../redux/store";
 import { getIsLoading, getPokemonsList, getPokemonsCount } from "../../redux/selectors/home_selector";
 import { getPokemonsListThunk, loadMorePokemonThunk } from "../../redux/actions/home_actions";
 
-import Loading from "../Loading/Loading";
 import Header from '../../components/Header/Header';
 import SearchPanel from '../../components/SearchPanel/SearchPanel';
 import PokemonCard from './components/PokemonCard/PokemonCard';
@@ -46,8 +45,6 @@ const Home: React.FC<Props> = (props): JSX.Element => {
                name={pokemon.name}
                imgSrc={pokemon.imageUrl} />
          }) : [];
-
-   if (isLoading) return <Loading />
 
    return (
       <div className={s.content}>

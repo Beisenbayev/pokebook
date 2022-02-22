@@ -2,7 +2,7 @@
   "name": "pokebook",
   "version": "1.4.1",
   "private": true,
-  "homepage": "https://beisenbayev.github.io/pokebook",
+  "homepage": "https://beisenbayev.github.io",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",

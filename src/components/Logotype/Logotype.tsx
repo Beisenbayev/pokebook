@@ -8,7 +8,7 @@ interface Props { };
 
 const Logotype: React.FC<Props> = (props): JSX.Element => {
    return (
-      <NavLink to='/' className={s.content}>
+      <NavLink to='/pokebook/home' className={s.content}>
          <div className={s.image}>
             <img src={logoIcon} className={s.img} alt='logo' />
          </div>

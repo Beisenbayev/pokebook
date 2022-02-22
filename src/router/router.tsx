@@ -12,15 +12,9 @@ interface RouteInterface {
 }
 
 const routeConfig: Array<RouteInterface> = [
-   { path: '/', element: <Home /> },
+   { path: '/pokebook/home', element: <Home /> },
+   { path: '/pokebook/pokemon/:pokeId', element: <PokemonInfo /> },
    { path: '*', element: <Error /> },
-   {
-      path: '/pokemon',
-      element: <PokemonInfo />,
-      children: [
-         { path: ':pokeId', element: <PokemonInfo /> }
-      ]
-   }
 ];
 
 interface Props { };

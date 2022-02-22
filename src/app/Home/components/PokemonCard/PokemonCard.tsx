@@ -12,7 +12,7 @@ interface Props {
 
 const PokemonCard: React.FC<Props> = (props): JSX.Element => {
    return (
-      <NavLink to={`/pokemon/${props.id}`} className={s.content}>
+      <NavLink to={`/pokebook/pokemon/${props.id}`} className={s.content}>
          <div className={s.topContent}>
             <span className={s.number}>#{props.index}</span>
             <div className={s.image}>

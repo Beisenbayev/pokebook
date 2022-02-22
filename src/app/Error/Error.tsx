@@ -11,7 +11,7 @@ const Error: React.FC<Props> = (props): JSX.Element => {
    const navigator = useNavigate();
 
    const handleGoToHomePage = () => {
-      navigator('/');
+      navigator('/pokebook/home');
    }
 
    return (

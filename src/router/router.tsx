@@ -12,6 +12,7 @@ interface RouteInterface {
 }
 
 const routeConfig: Array<RouteInterface> = [
+   { path: '/pokebook/', element: <Home /> },
    { path: '/pokebook/home', element: <Home /> },
    { path: '/pokebook/pokemon/:pokeId', element: <PokemonInfo /> },
    { path: '*', element: <Error /> },

@@ -32,7 +32,7 @@ const Home: React.FC<Props> = (props): JSX.Element => {
 
    const handleShowRandomPokemon = () => {
       const randomId: number = Math.floor(Math.random() * pokemonsCount);
-      navigator(`/pokebook/pokemon/${randomId}`);
+      navigator(`/pokemon/${randomId}`);
    }
 
    const pokemonItems: Array<JSX.Element> = pokemonsList ?
